@@ -49,6 +49,9 @@ Your goal for this project is to write a program simulating the motion of `N` ob
 
 Ultimately, you will be creating a program nbody.py that draws an animation of bodies floating around in space tugging on each other with the power of gravity.
 
+Throughout the instructions, we will be using Python's [type hinting syntax](https://docs.python.org/3/library/typing.html), e.g. `values: List[float]`. While it is optional to use type hinting in your project, it is considered a best practice and [strongly recommended](https://google.github.io/styleguide/pyguide.html#221-type-annotated-code).
+You may check your code with [mypy](https://mypy.readthedocs.io/en/stable/getting_started.html) or another linter like [pytype](https://github.com/google/pytype).
+
 ## The Body Class and Its Constructor
 
 You’ll start by creating a Body class. In your favorite text editor, create a new file called `Body.py`. If you haven’t picked a text editor, we recommend VSCode or Sublime Text. Remember that your `.py` files should have the same name as the class it contains.
@@ -56,12 +59,12 @@ You’ll start by creating a Body class. In your favorite text editor, create a 
 Begin by creating a basic version of the `Body` class with the following 6 instance variables:
 
 ```python
-    xx_pos: float  # Its current x position
-    yy_pos: float  # Its current y position
-    xx_vel: float  # Its current velocity in the x direction
-    yy_vel: float  # Its current velocity in the y direction
-    mass: float  # Its mass
-    img_filename: str  # The name of the file that corresponds to the image that depicts the body (for example, jupiter.gif)
+xx_pos: float  # Its current x position
+yy_pos: float  # Its current y position
+xx_vel: float  # Its current velocity in the x direction
+yy_vel: float  # Its current velocity in the y direction
+mass: float  # Its mass
+img_filename: str  # The name of the file that corresponds to the image that depicts the body (for example, jupiter.gif)
 ```
 
 Your instance variables must be named exactly as above. The reason we call them by double letters, e.g. `xx_pos` rather than `x_pos` is to reduce the chance of typos. In past semesters, students have accidentally pressed x when they meant y, and this has caused significant debugging hassle. After adding the 6 instance variables above, add in a `Body` constructor (`__init__`) that can initialize an instance of the `Body` class. Later on, an instance of the `Body` class can represent a planet, star, or various objects in this universe. The signature of the first constructor should be:
