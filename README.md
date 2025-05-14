@@ -56,15 +56,15 @@ You’ll start by creating a Body class. In your favorite text editor, create a 
 Begin by creating a basic version of the `Body` class with the following 6 instance variables:
 
 ```python
-    float xx_pos  # Its current x position
-    float yy_pos  # Its current y position
-    float xx_vel  # Its current velocity in the x direction
-    float yy_vel  # Its current velocity in the y direction
-    float mass # Its mass
-    str img_filename # The name of the file that corresponds to the image that depicts the body (for example, jupiter.gif)
+    xx_pos: float  # Its current x position
+    yy_pos: float  # Its current y position
+    xx_vel: float  # Its current velocity in the x direction
+    yy_vel: float  # Its current velocity in the y direction
+    mass: float  # Its mass
+    img_filename: str  # The name of the file that corresponds to the image that depicts the body (for example, jupiter.gif)
 ```
 
-Your instance variables must be named exactly as above. The reason we call them by float letters, e.g. `xx_pos` rather than `x_pos` is to reduce the chance of typos. In past semesters, students have accidentally pressed x when they meant y, and this has caused significant debugging hassle. After adding the 6 instance variables above, add in a Body constructor (`__init__`) that can initialize an instance of the Body class. Later on, an instance of the Body class can represent a planet, star, or various objects in this universe. The signature of the first constructor should be:
+Your instance variables must be named exactly as above. The reason we call them by double letters, e.g. `xx_pos` rather than `x_pos` is to reduce the chance of typos. In past semesters, students have accidentally pressed x when they meant y, and this has caused significant debugging hassle. After adding the 6 instance variables above, add in a `Body` constructor (`__init__`) that can initialize an instance of the `Body` class. Later on, an instance of the `Body` class can represent a planet, star, or various objects in this universe. The signature of the first constructor should be:
 
 ```python
 def __init__(self, xx_pos: float, yy_pos: float, xx_vel: float,
