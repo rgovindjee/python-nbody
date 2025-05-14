@@ -64,7 +64,7 @@ Begin by creating a basic version of the `Body` class with the following 6 insta
     str img_filename # The name of the file that corresponds to the image that depicts the body (for example, jupiter.gif)
 ```
 
-Your instance variables must be named exactly as above. The reason we call them by double letters, e.g. `xx_pos` rather than `x_pos` is to reduce the chance of typos. In past semesters, students have accidentally pressed x when they meant y, and this has caused significant debugging hassle. After adding the 6 instance variables above, add in a Body constructor (`__init__`) that can initialize an instance of the Body class. Later on, an instance of the Body class can represent a planet, star, or various objects in this universe. The signature of the first constructor should be:
+Your instance variables must be named exactly as above. The reason we call them by float letters, e.g. `xx_pos` rather than `x_pos` is to reduce the chance of typos. In past semesters, students have accidentally pressed x when they meant y, and this has caused significant debugging hassle. After adding the 6 instance variables above, add in a Body constructor (`__init__`) that can initialize an instance of the Body class. Later on, an instance of the Body class can represent a planet, star, or various objects in this universe. The signature of the first constructor should be:
 
 ```python
 def __init__(self, xx_pos: float, yy_pos: float, xx_vel: float,
@@ -79,8 +79,7 @@ We will also provide a factory method that takes in a `Body` and initializes an 
 def copy(b: Body) -> Body:
 ```
 
-
-All of the numbers for this project will be `float`s. We’ll go over what exactly a double is later in the course, but for now, think of it is a real number, e.g. `x = 3.5`.
+All of the numbers for this project will be `float`s. We’ll go over what exactly a float is later in the course, but for now, think of it is a real number, e.g. `x = 3.5`.
 
 Once you have filled in the constructors, you can test it out by running `body_test.py`.
 
@@ -121,7 +120,7 @@ Consider a small example consisting of two celestial objects: Saturn and the Sun
 
 Let’s run through some sample calculations. First let’s compute $F_1$, the force that Saturn exerts on the Sun. We’ll begin by calculating $r$, which we’ve already expressed above in terms of dx and dy. Since we’re calculating the force exerted by Saturn, dx is Saturn’s $x$-position minus Sun’s $x$-position, which is $1.3 \times 10^{12} \text{ m}$. Similarly, dy is $7.5 \cdot 10^{11} \text{ m}$.
 
-So, $r^2 = dx^2 + dy^2 = (1.3 \cdot 10^{12})^2 + (7.5 \cdot 10^{11})^2$. Solving for $r$ gives us $1.5 \cdot 10^{12} \text{ m}$. Now that we have $r$, computation of F$ is straightforward:
+So, $r^2 = dx^2 + dy^2 = (1.3 \cdot 10^{12})^2 + (7.5 \cdot 10^{11})^2$. Solving for $r$ gives us $1.5 \cdot 10^{12} \text{ m}$. Now that we have $r$, computation of $F$ is straightforward:
 
 $$F = \dfrac{G \cdot (2.0 \cdot 10^{30} \text{ kg}) \cdot (6.0 \cdot 10^{26} \text{kg})}{(1.5 \cdot 10^{12} \text{ m})^2} = 3.6 \cdot 10^{22} \text{ N}$$
 
@@ -132,7 +131,7 @@ $$F_{1, y} = \dfrac{F_1 \cdot (7.5 \cdot 10^{11} \text{ m})}{1.5 \cdot 10^{12} \
 
 Note that the sign of dx and dy is important! Here, dx and dy were both positive, resulting in positive values for $F_{1, x}$ and $F_{1, y}$. This makes sense if you look at the diagram: Saturn will exert a force that pulls the Sun to the right (positive $F_{1, x}$ ) and up (positive $F_{1, y}$).
 
-Next, let’s compute the x and y-components of the force that the Sun exerts on Saturn. The values of dx and dy are negated here, because we’re now measuring the displacement of the Sun relative to Saturn. Again, you can verify that the signs should be negative by looking at the diagram: the Sun will pull Saturn to the left (negative dx) and down (negative dy).
+Next, let’s compute the $x$ and $y$-components of the force that the Sun exerts on Saturn. The values of dx and dy are negated here, because we’re now measuring the displacement of the Sun relative to Saturn. Again, you can verify that the signs should be negative by looking at the diagram: the Sun will pull Saturn to the left (negative dx) and down (negative dy).
 
 $$F_{2, x} = \dfrac{F_2 \cdot (-1.3 \cdot 10^{12} \text{ m})}{1.5 \cdot 10^{12} \text{ m}} = -3.1 \cdot 10^{22} \text{ N}$$
 $$F_{2, y} = \dfrac{F_2 \cdot(-7.5 \cdot 10^{11} \text{ m})}{1.5 \cdot 10^{12} \text{ m}} = -1.8 \cdot 10^{22} \text{ N}$$
@@ -143,9 +142,9 @@ Let’s add Neptune to the mix and calculate the net force on Saturn. Here’s a
 We can calculate the $x$-component of the net force on Saturn by summing the $x$-components of all pairwise forces. Likewise, $F_{\text{net}, y}$ can be calculated by summing the y-components of all pairwise forces. Assume the forces exerted on Saturn by the Sun are the same as above, and that $F_{2,x} = 1.1 \cdot 10^{22} \text{ N}$ and $F_{2,y} = 9.0 \cdot 10^{21} \text{N}$.
 
 $$F_{\text{net}, x} = F_{1, x} + F_{2, x} = -3.1 \cdot 10^{22} \text{ N} + 1.1 \cdot 10^{22} \text{ N} = -2.0 \cdot 10^{22} \text{ N}$$
-$$F_{\text{net}, y} = F_{1, y} + F_{2, y} = -1.8 \cdot 10^{22} \text{ N} + 9.0 \cdot 10^{21} \text{ N} = -9.0 \cdot 10^{21} \text {N}$$
+$$F_{\text{net}, y} = F_{1, y} + F_{2, y} = -1.8 \cdot 10^{22} \text{ N} + 9.0 \cdot 10^{21} \text{ N} = -9.0 \cdot 10^{21} \text { N}$$
 
-Double check your understanding!
+### Double check your understanding!
 
 Suppose there are three bodies in space as follows:
 
@@ -154,6 +153,72 @@ Suppose there are three bodies in space as follows:
 - Rocinante: $x = 5, y = -3, \text{mass} = 50$
 
 Calculate $F_{\text{net}, x}$ and $F_{\text{net}, y}$ exerted on Samh. To check your answer, click [here](http://www.wolframalpha.com/input/?i=%286.67+*+10%5E-11+*+10+*+5%29+%2F+13+*+2+%2F+sqrt%2813%29+%2B+%286.67+*+10%5E-11+*+10+*+50%29+%2F25+*+4+%2F+sqrt%2825%29) for $F_{\text{net}, x}$ and [here](http://www.wolframalpha.com/input/?i=%2810+*+5+*+6.67+*+10%5E-11%29+%2F13+*+3+%2F+sqrt%2813%29+-+%2850+*+10+*+6.67+*+10%5E-11%29+%2F+25+*+3+%2F+sqrt%2825%29) for $F_{\text{net}, y}$.
+
+## Writing the Body Class
+
+In our program, we’ll have instances of the `Body` class do the job of calculating all the numbers we learned about in the previous example. We’ll write helper methods, one by one, until our `Body` class is complete.
+
+### calc_distance
+
+Start by adding a method called `calc_distance` that calculates the distance between two `Body`s. This method will take in a single `Body` and should return a `float` equal to the distance between the supplied body and the body that is doing the calculation, e.g.
+
+`samh.calc_distance(rocinante)`
+
+It is up to you this time to figure out the signature of the method. Once you have completed this method, go ahead and recompile and run the next unit test to see if your code is correct.
+
+Test with:
+`python -m unittest --verbose calc_distance_test`
+
+Note: you may import default libraries like `math`.
+
+### calc_force_exerted_by 
+
+The next method that you will implement is `calc_force_exerted_by`. The `calc_force_exerted_by` method takes in a `Body`, and returns a `float` describing the force exerted on this body by the given body. You should be calling the `calc_distance` method inside this method. As an example, `samh.calc_force_exerted_by(rocinante)` for the numbers in "Double Check Your Understanding" return `1.334⋅10−9`
+
+.
+
+Once you’ve finished `calc_force_exerted_by`, re-compile and run the next unit test.
+
+`python -m unittest --verbose calc_force_exerted_by`
+
+Hint: It is good practice to declare any constants as a class variable, and to use that variable anytime you wish to use the constant.
+
+Hint 2: Python supports scientific notation. For example, I can write `some_number = 1.03e-7`.
+
+### calc_force_exerted_by_x and calc_force_exerted_by_y 
+
+The next two methods that you should write are `calc_force_exerted_by_x`  and `calc_force_exerted_by_y`. Unlike the `calc_force_exerted_by` method, which returns the total force, these two methods describe the force exerted in the X and Y directions, respectively. Remember to check your signs! Once you’ve finished, you can recompile and run the next unit test. As an example, `samh.calc_force_exerted_by_x(rocinante)` in "Double Check Your Understanding" should return `1.0672⋅10−9`
+
+.
+
+NOTE: Do not use `abs` to fix sign issues with these methods. This will cause issues later when drawing planets.
+
+`python -m unittest --verbose calc_force_exerted_by_xy`
+
+### calc_net_force_exerted_by_x and calc_net_force_exerted_by_y
+
+Write methods `calc_net_force_exerted_by_x` and `calc_net_force_exerted_by_y` hat each take in a list of `Body`s and calculates the net X and net Y force exerted by all bodies in that array upon the current `Body`. For example, consider the code snippet below:
+
+```python
+all_bodys = [samh, rocinante, aegir]
+samh.calc_net_force_exerted_by_x(all_bodys)
+samh.calc_net_force_exerted_by_y(all_bodys)
+```
+
+The two calls here would return the values given in "Double Check Your Understanding."
+
+As you implement these methods, remember that `Body`s cannot exert gravitational forces on themselves! Can you think of why that is the case (hint: the universe will possibly collapse in on itself, destroying everything including you)?
+
+To avoid this problem, ignore any body in the array that is equal to the current body.
+To compare two bodies, you may use `is` or `==`, provided you have not implemented `__eq__()` for your `Body`.
+The default implementation of `__eq__` (for which `==` is just [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)) is to compare with `is`.
+This checks if the two objects being compared are precisely the same object in memory (not just constructed with the same values).
+
+When you are done go ahead and run:
+
+`python -m unittest --verbose calc_net_force_exerted_by_xy`
+
+### update
 
 # Acknowledgements
 This project is more or less a direct transcription of [Spring 2019 CS 61B Project 0](https://sp19.datastructur.es/materials/proj/proj0/proj0) from Java into Python. Thanks to Josh Hug, Matthew Chow, and Daniel Nguyen, and the original authors Robert Sedgewick and Kevin Wayne from Princeton University.
