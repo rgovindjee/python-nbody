@@ -223,5 +223,53 @@ When you are done go ahead and run:
 
 ### update
 
+Next, you’ll add a method that determines how much the forces exerted on the body will cause that body to accelerate, and the resulting change in the body’s velocity and position in a small period of time $dt$. For example, `samh.update(0.005, 10, 3)` would adjust the velocity and position if an x-force of $10 \text{ Newtons}$ and a y-force of $3 \text{ Newtons}$ were applied for $0.005 \text{ seconds}$.
+
+You must compute the movement of the `Body` using the following steps:
+
+  - Calculate the acceleration using the provided x- and y-forces.
+  - Calculate the new velocity by using the acceleration and current velocity. Recall that acceleration describes the change in velocity per unit time, so the new velocity is $(v_x + dt \cdot a_x, v_y + dt \cdot a_y)$.
+  - Calculate the new position by using the velocity computed in step 2 and the current position. The new position is $(p_x + dt \cdot v_x, p_y + dt \cdot v_y)$.
+
+Let’s try an example! Consider a squirrel initially at position $(0, 0)$ with a $v_x$ of $3 \dfrac{\text{m}}{\text{s}}$ and a $v_y$ of $5 \dfrac{\text{m}}{\text{s}}$. $F_{\text{net}, x}$ is $-5 \text{ N}$ and $F_{\text{net}, y}$ is $-2 \text{ N}$. Here’s a diagram of this system:
+
+squirrelforce
+
+We’d like to update with a time step of $1 \text{ second}$. First, we’ll calculate the squirrel’s net acceleration:
+
+$$a_{\text{net}, x} = \dfrac{F_{\text{net}, x}}{m} = \dfrac{-5 \text{ N}}{1 \text{ kg}} = -5 \dfrac{\text{m}}{\text{s}^2}$$
+
+$$a_{\text{net}, y} = \dfrac{F_{\text{net}, y}}{m} = \dfrac{-2 \text{ N}} {1 \text{ kg}} = -2 \dfrac{\text{m}}{\text{s}^2}$$
+
+With the addition of the acceleration vectors we just calculated, our system now looks like this:
+
+squirrelacc
+
+Second, we’ll calculate the squirrel’s new velocity:
+
+$$v_{\text{new}, x} = v_{\text{old}, x} + dt \cdot a_{\text{net}, x} = 3 \dfrac{\text{m}}{\text{s}} + 1 \text{ s} \cdot -5 \dfrac{\text{m}}{\text{s}^2} = -2 \dfrac{\text{m}}{\text{s}}$$
+
+$$v_{\text{new}, y} = v_{\text{old}, y} + dt \cdot a_{\text{net}, y} = 5 \dfrac{\text{m}}{\text{s}} + 1 \text{ s} \cdot -2 \dfrac{\text{m}}{\text{s}^2} = 3 \dfrac{\text{m}}{\text{s}}$$
+
+Third, we’ll calculate the new position of the squirrel:
+
+$$p_{\text{new}, x} = p_{\text{old}, x} + dt \cdot v_{\text{new}, x} = 0 \text{ m} + 1 \text{ s} \cdot -2 \dfrac{\text{m}}{\text{s}} = -2 \text{ m}$$
+
+$$p_{\text{new}, y} = p_{\text{old}, y} + dt \cdot v_{\text{new}, y} = 0 \text{ m} + 1 \text{ s} \cdot 3 \dfrac{\text{m}}{\text{s}} = 3 \text{ m}$$
+
+Here’s a diagram of the updated system:
+
+squirrelupdated
+
+For math/physics experts: You may be tempted to write a more accurate simulation where the force gradually increases over the specified time window. Don’t! Your simulation must follow exactly the rules above.
+
+Write a method `update(self, dt, f_xx, f_yy)` that uses the steps above to update the body’s position and velocity instance variables (this method does not need to return anything).
+
+Once you’re done, recompile and test your method with:
+
+`python -m unittest --verbose update_test.py`
+
+Once you’ve done this, you’ve finished implementing the physics. Hoorah! You’re halfway there.
+
 # Acknowledgements
 This project is more or less a direct transcription of [Spring 2019 CS 61B Project 0](https://sp19.datastructur.es/materials/proj/proj0/proj0) from Java into Python. Thanks to Josh Hug, Matthew Chow, and Daniel Nguyen, and the original authors Robert Sedgewick and Kevin Wayne from Princeton University.
