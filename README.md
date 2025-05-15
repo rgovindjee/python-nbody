@@ -271,5 +271,33 @@ Once you’re done, recompile and test your method with:
 
 Once you’ve done this, you’ve finished implementing the physics. Hoorah! You’re halfway there.
 
+## Testing Your Body Class
+
+As the semester progresses, we’ll be giving you fewer and fewer tests, and it will be your responsibility to write your own tests. Writing tests is a good way to improve your workflow and be more efficient.
+
+Some people find the rush of test-driven development (TDD) addictive. You basically set up a little game for yourself to solve. Some people hate it. Your mileage may vary. Whether you personally enjoy the TDD flow or not, writing tests will be one of the most important skills you learn here at Berkeley, and getting "[test-infected](https://wiki.c2.com/?TestInfected)" will save you and your future colleagues an enormous amount of time and misery.
+
+### \_\_str\_\_
+
+Go ahead and try writing your own test for a `__str__(self)` method in the `Body` class.
+This is a [dunder method](https://www.pythonmorsels.com/what-are-dunder-methods/) that is called, among other places, when we call `print()` and `str()` on an object.
+
+First, make a `body_test.py` file and write a `unittest` test that creates a body and checks that
+
+```python
+Body b = ...
+str(b)
+```
+
+returns a string with its state information in a human-readable format of your choosing.
+Feel free to copy the structure from the provided tests.
+
+An example output might look like `Body at (1.5, 2.6) with velocity (3.7, 4.1) and mass 1.239812e+08`, but feel free to change the formatting as you see fit. Check out the [format specification documentation](https://docs.python.org/3/library/string.html#formatspec) for information on using scientific notation or limiting decimal places.
+
+Then, go and implement `__str__` in `body.py`. Run your test to see if your implementation is working right!
+
+For bonus points, consider: how you might check that `print(b: Body)` is working properly?
+This is beyond the scope of the course, but an important [real-world consideration](https://stackoverflow.com/questions/33767627/write-unittest-for-console-print).
+
 # Acknowledgements
 This project is more or less a direct transcription of [Spring 2019 CS 61B Project 0](https://sp19.datastructur.es/materials/proj/proj0/proj0) from Java into Python. Thanks to Josh Hug, Matthew Chow, and Daniel Nguyen, and the original authors Robert Sedgewick and Kevin Wayne from Princeton University.
