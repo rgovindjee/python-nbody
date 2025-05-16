@@ -428,7 +428,9 @@ A reasonable implementation could look like this:
         ...
 ```
 
-Either way, you will need to do the following:
+Be careful to not break existing test cases that might not provide valid file paths! Can you figure out some reasonable [default arguments](https://www.w3schools.com/python/gloss_python_function_default_parameter.asp) that allow the tests in `read_radius_test` and `read_bodies_test` to still function?
+
+Regardless of your implementation, you will need to do the following:
 
 ### Draw the Background
 
@@ -525,12 +527,20 @@ This isn’t all that exciting (which is why we’ve provided a solution), but w
 
 # Submission
 
-Run
+First, make sure you haven't introduced any regressions by running
+
+```
+python3 -m unittest --verbose *test.py
+```
+
+If any of the tests fail, go back and fix your code first. The most common sources of regressions are new arguments or behavior for a method. While in real life we might want to just update the test, sometimes we have clients who rely on our old interface and can't easily update. See if you can make your code backward-compatible!
+
+Then, run
 ```
 python3 nbody.py 500000.0 25000.0 data/kevin.txt
 ```
 
-Once the simulation stops, close the window and copy the output into a text file `out.txt`. Submit this for grading!
+Once the simulation stops, close the window and copy the output into a text file `out.txt`. Submit this for grading, along `body.py`, `nbody.py`, and `str_test.py`!
 
 ## Going Above and Beyond (Gold Points)
 
