@@ -6,9 +6,13 @@
 
 To get started, fork the repository by using the GitHub interface. This will allow you to push your changes to your own version of the repository hosted on GitHub.
 
+![fork](./assets/fork.png)
+
 Then, clone **your** fork by copying the SSH URL and running
 
 `git clone <SSH URL>`
+
+![clone](./assets/clone.png)
 
 in a directory of your choice.
 
@@ -151,7 +155,7 @@ Let’s take a step back now and look at the physics behind our simulations. Our
 
 Look at the image below and make sure you understand what each variable represents!
 
-![vim](./assets/pairwiseforce.png)
+![pairwiseforce](./assets/pairwiseforce.png)
 
 Note that force is a vector (i.e., it has direction). In particular, be aware that $dx$ and $dy$ are signed (positive or negative).
 
@@ -187,7 +191,7 @@ $$F_{2, y} = \dfrac{F_2 \cdot(-7.5 \cdot 10^{11} \text{ m})}{1.5 \cdot 10^{12} \
 
 Let’s add Neptune to the mix and calculate the net force on Saturn. Here’s a diagram illustrating the forces being exerted on Saturn in this new system:
 
-![vim](./assets/netforce.png)
+![netforce](./assets/netforce.png)
 
 We can calculate the $x$-component of the net force on Saturn by summing the $x$-components of all pairwise forces. Likewise, $F_{\text{net}, y}$ can be calculated by summing the $y$-components of all pairwise forces. Assume the forces exerted on Saturn by the Sun are the same as above, and that $F_{2,x} = 1.1 \cdot 10^{22} \text{ N}$ and $F_{2,y} = 9.0 \cdot 10^{21} \text{N}$.
 
@@ -276,7 +280,7 @@ You must compute the movement of the `Body` using the following steps:
 
 Let’s try an example! Consider a squirrel initially at position $(0, 0)$ with a $v_x$ of $3 \dfrac{\text{m}}{\text{s}}$ and a $v_y$ of $5 \dfrac{\text{m}}{\text{s}}$. $F_{\text{net}, x}$ is $-5 \text{ N}$ and $F_{\text{net}, y}$ is $-2 \text{ N}$. Here’s a diagram of this system:
 
-![vim](./assets/squirrelforce.png)
+![squirrelforce](./assets/squirrelforce.png)
 
 We’d like to update with a time step of $1 \text{ second}$. First, we’ll calculate the squirrel’s net acceleration:
 
@@ -286,7 +290,7 @@ $$a_{\text{net}, y} = \dfrac{F_{\text{net}, y}}{m} = \dfrac{-2 \text{ N}} {1 \te
 
 With the addition of the acceleration vectors we just calculated, our system now looks like this:
 
-![vim](./assets/squirrelacc.png)
+![squirrelacc](./assets/squirrelacc.png)
 
 Second, we’ll calculate the squirrel’s new velocity:
 
@@ -302,7 +306,7 @@ $$p_{\text{new}, y} = p_{\text{old}, y} + dt \cdot v_{\text{new}, y} = 0 \text{ 
 
 Here’s a diagram of the updated system:
 
-![vim](./assets/squirrelupdated.png)
+![squirrelupdated](./assets/squirrelupdated.png)
 
 For math/physics experts: You may be tempted to write a more accurate simulation where the force gradually increases over the specified time window. Don’t! Your simulation must follow exactly the rules above.
 
