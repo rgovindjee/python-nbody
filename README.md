@@ -30,7 +30,7 @@ Depending on the settings on the computer you’re using, you will possibly find
 
 For reference, this is what `vim` looks like:
 
-vim
+![vim](./assets/vim.png)
 
 See [this link](http://stackoverflow.com/questions/11828270/how-to-exit-the-vim-editor) if you are stuck in `vim`. If you are in `emacs`, type something and then press `ctrl-x` then `ctrl-s` to save, then `ctrl-x` then `ctrl-c` to exit.
 
@@ -151,6 +151,8 @@ Let’s take a step back now and look at the physics behind our simulations. Our
 
 Look at the image below and make sure you understand what each variable represents!
 
+![vim](./assets/pairwiseforce.png)
+
 Note that force is a vector (i.e., it has direction). In particular, be aware that $dx$ and $dy$ are signed (positive or negative).
 
 - Net Force: The _principle of superposition_ says that the net force acting on a particle in the $x$- or $y$-direction is the sum of the pairwise forces acting on the particle in that direction.
@@ -185,6 +187,7 @@ $$F_{2, y} = \dfrac{F_2 \cdot(-7.5 \cdot 10^{11} \text{ m})}{1.5 \cdot 10^{12} \
 
 Let’s add Neptune to the mix and calculate the net force on Saturn. Here’s a diagram illustrating the forces being exerted on Saturn in this new system:
 
+![vim](./assets/netforce.png)
 
 We can calculate the $x$-component of the net force on Saturn by summing the $x$-components of all pairwise forces. Likewise, $F_{\text{net}, y}$ can be calculated by summing the $y$-components of all pairwise forces. Assume the forces exerted on Saturn by the Sun are the same as above, and that $F_{2,x} = 1.1 \cdot 10^{22} \text{ N}$ and $F_{2,y} = 9.0 \cdot 10^{21} \text{N}$.
 
@@ -222,9 +225,7 @@ Note: you may import default libraries like `math`.
 
 The next method that you will implement is `calc_force_exerted_by`. The `calc_force_exerted_by` method takes in a `Body`, and returns a `float` describing the force exerted on this body by the given body. You should be calling the `calc_distance` method inside this method. As an example, `samh.calc_force_exerted_by(rocinante)` for the numbers in "Double Check Your Understanding" return `1.334⋅10−9`
 
-.
-
-Once you’ve finished `calc_force_exerted_by`, re-compile and run the next unit test.
+Once you’ve finished `calc_force_exerted_by`, run the next unit test.
 
 `python -m unittest --verbose calc_force_exerted_by`
 
@@ -235,8 +236,6 @@ Hint 2: Python supports scientific notation. For example, I can write `some_numb
 ### calc_force_exerted_by_x and calc_force_exerted_by_y 
 
 The next two methods that you should write are `calc_force_exerted_by_x`  and `calc_force_exerted_by_y`. Unlike the `calc_force_exerted_by` method, which returns the total force, these two methods describe the force exerted in the X and Y directions, respectively. Remember to check your signs! Once you’ve finished, you can recompile and run the next unit test. As an example, `samh.calc_force_exerted_by_x(rocinante)` in "Double Check Your Understanding" should return `1.0672⋅10−9`
-
-.
 
 NOTE: Do not use `abs` to fix sign issues with these methods. This will cause issues later when drawing planets.
 
@@ -277,7 +276,7 @@ You must compute the movement of the `Body` using the following steps:
 
 Let’s try an example! Consider a squirrel initially at position $(0, 0)$ with a $v_x$ of $3 \dfrac{\text{m}}{\text{s}}$ and a $v_y$ of $5 \dfrac{\text{m}}{\text{s}}$. $F_{\text{net}, x}$ is $-5 \text{ N}$ and $F_{\text{net}, y}$ is $-2 \text{ N}$. Here’s a diagram of this system:
 
-squirrelforce
+![vim](./assets/squirrelforce.png)
 
 We’d like to update with a time step of $1 \text{ second}$. First, we’ll calculate the squirrel’s net acceleration:
 
@@ -287,7 +286,7 @@ $$a_{\text{net}, y} = \dfrac{F_{\text{net}, y}}{m} = \dfrac{-2 \text{ N}} {1 \te
 
 With the addition of the acceleration vectors we just calculated, our system now looks like this:
 
-squirrelacc
+![vim](./assets/squirrelacc.png)
 
 Second, we’ll calculate the squirrel’s new velocity:
 
@@ -303,7 +302,7 @@ $$p_{\text{new}, y} = p_{\text{old}, y} + dt \cdot v_{\text{new}, y} = 0 \text{ 
 
 Here’s a diagram of the updated system:
 
-squirrelupdated
+![vim](./assets/squirrelupdated.png)
 
 For math/physics experts: You may be tempted to write a more accurate simulation where the force gradually increases over the specified time window. Don’t! Your simulation must follow exactly the rules above.
 
