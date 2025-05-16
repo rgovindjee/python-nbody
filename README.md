@@ -325,7 +325,7 @@ Some people find the rush of test-driven development (TDD) addictive. You basica
 Go ahead and try writing your own test for a `__str__(self)` method in the `Body` class.
 This is a [dunder method](https://www.pythonmorsels.com/what-are-dunder-methods/) that is called, among other places, when we call `print()` and `str()` on an object.
 
-First, make a `body_test.py` file and write a `unittest` test that creates a body and checks that
+First, make a `str_test.py` file and write a `unittest` test that creates a body and checks that
 
 ```python
 Body b = ...
