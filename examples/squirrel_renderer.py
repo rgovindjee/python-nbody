@@ -60,7 +60,7 @@ class SquirrelRenderer:
         # Interval is the delay between frames in milliseconds (33ms ~= 30fps).
         # Frame values are passed to the update function.
         self.ani = FuncAnimation(self.fig, self.update, frames=np.linspace(0, 2*np.pi, 128),
-                    init_func=self.init, blit=True, interval=33)
+                    init_func=self.init, blit=True, interval=33, repeat=False)
 
     def init(self):
         """
@@ -99,6 +99,7 @@ class SquirrelRenderer:
     def run(self):
         """
         Run the animation.
+        This is blocking and will not return until the animation is closed!
         """
         plt.show()
 
