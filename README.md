@@ -292,12 +292,49 @@ str(b)
 returns a string with its state information in a human-readable format of your choosing.
 Feel free to copy the structure from the provided tests.
 
-An example output might look like `Body at (1.5, 2.6) with velocity (3.7, 4.1) and mass 1.239812e+08`, but feel free to change the formatting as you see fit. Check out the [format specification documentation](https://docs.python.org/3/library/string.html#formatspec) for information on using scientific notation or limiting decimal places.
+An example output might look like  
+```
+Body at (1.5, 2.6) with velocity (3.7, 4.1) and mass 1.239812e+08
+```
+, but feel free to change the formatting as you see fit. Check out the [format specification documentation](https://docs.python.org/3/library/string.html#formatspec) for information on using scientific notation or limiting decimal places.
 
 Then, go and implement `__str__` in `body.py`. Run your test to see if your implementation is working right!
 
 For bonus points, consider: how you might check that `print(b: Body)` is working properly?
 This is beyond the scope of the course, but an important [real-world consideration](https://stackoverflow.com/questions/33767627/write-unittest-for-console-print).
+
+## Getting Started with the Simulator (nbody.py)
+
+Create a file named `nbody.py`. `NBody` is a class that will actually run your simulation. This class will have NO (explicit) constructor. The goal of this class is to simulate a universe specified in one of the data files. For example, if we look inside `data/planets.txt` (using the command line `more` command), we see the following:
+
+```bash
+$ more planets.txt
+5
+2.50e+11
+1.4960e+11  0.0000e+00  0.0000e+00  2.9800e+04  5.9740e+24    earth.gif
+2.2790e+11  0.0000e+00  0.0000e+00  2.4100e+04  6.4190e+23     mars.gif
+5.7900e+10  0.0000e+00  0.0000e+00  4.7900e+04  3.3020e+23  mercury.gif
+0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00  1.9890e+30      sun.gif
+1.0820e+11  0.0000e+00  0.0000e+00  3.5000e+04  4.8690e+24    venus.gif
+```
+
+The input format is a text file that contains the information for a particular universe (in SI units). The first value is an integer `N` which represents the number of planets. The second value is a real number `R` which represents the radius of the universe, used to determine the scaling of the drawing window. Finally, there are `N` rows, and each row contains 6 values. The first two values are the x- and y-coordinates of the initial position; the next pair of values are the x- and y-components of the initial velocity; the fifth value is the mass; the last value is a `string` that is the name of an image file used to display the planets. Image files can be found in the images directory. The file above contains data for our own solar system (up to Mars).
+
+### read_radius
+
+Your first method is `read_radius`. Given a file name as a `string`, it should return a `float` corresponding to the radius of the universe in that file, e.g. `read_radius("./data/planets.txt")` should return `2.50e+11`.
+
+You can test this method using the supplied test.
+
+`python -m unittest --verbose read_radius_test.py`
+
+### read_bodies 
+
+Your next method is `read_bodies`. Given a file name, it should return an array of `Body`s corresponding to the bodies in the file, e.g. `read_bodies("./data/planets.txt")` should return an array of five planets.
+
+You can test this method using the supplied test.
+
+`python -m unittest --verbose read_bodies_test.py`
 
 # Acknowledgements
 This project is more or less a direct transcription of [Spring 2019 CS 61B Project 0](https://sp19.datastructur.es/materials/proj/proj0/proj0) from Java into Python. Thanks to Josh Hug, Matthew Chow, and Daniel Nguyen, and the original authors Robert Sedgewick and Kevin Wayne from Princeton University.
