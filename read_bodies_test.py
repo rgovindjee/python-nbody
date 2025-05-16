@@ -4,7 +4,8 @@ import unittest
 class TestReadBodies(unittest.TestCase):
     def test_read_bodies(self):
         # Test the read_bodies function with a sample file.
-        bodies = NBody.read_bodies("data/planets.txt")
+        nb = NBody()
+        bodies = nb.read_bodies("data/planets.txt")
         
         # Check the number of bodies read
         self.assertEqual(len(bodies), 5)
