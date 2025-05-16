@@ -396,7 +396,7 @@ Note that this is _not_ a `main` function. It is generally recommended to define
 
 When we call `python3 nbody.py`, you should see the output `Running NBody`.
 
-Write code so that your `main` function performs the following steps:
+Write code so that your `main` block performs the following steps:
 
 - Store the first and second command line arguments as `float`s named `T` and `dt`. Hint: the arguments come in as `strings`. You will have to convert the `strings` to `floats`!
 
