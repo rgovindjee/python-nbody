@@ -2,20 +2,60 @@
 
 ## Setup
 
+### Getting the Skeleton Files
+
+To get started, fork the repository by using the GitHub interface. This will allow you to push your changes to your own version of the repository hosted on GitHub.
+
+Then, clone **your** fork by copying the SSH URL and running
+
+`git clone <SSH URL>`
+
+in a directory of your choice.
+
+If it's your first time using `git` on your machine, you may have to set up an SSH key--just follow the instructions in any error messages you get.
+
+You should now be able to use `git add`, `git commit`, `git push` and (unlikely) `git pull`.
+
+#### Merges 
+
+If at any point you encounter an automated merge (e.g. from `git pull`), this section may be helpful.
+
+Depending on the settings on the computer you’re using, you will possibly find yourself in one of three command line text editors:
+
+    nano
+    vim
+    emacs
+
+~~Fortunately~~ Unfortunately, `git` will likely default to one of these text editors, meaning that the simple act of providing a merge message may cause you considerable consternation. Don’t worry, this is normal! One of the goals of 61B is to teach you to handle these sorts of humps. Indeed, one of the reasons we’re making you use a powerful real-world version control system like `git` this semester is to have you hit these common hurdles now in a friendly pedagogical environment instead of the terrifying real world. However, this also means we’re going to suffer sometimes, particularly at this early point in the semester. Don’t panic!
+
+For reference, this is what `vim` looks like:
+
+vim
+
+See [this link](http://stackoverflow.com/questions/11828270/how-to-exit-the-vim-editor) if you are stuck in `vim`. If you are in `emacs`, type something and then press `ctrl-x` then `ctrl-s` to save, then `ctrl-x` then `ctrl-c` to exit.
+
+If you somehow end up having a merge conflict, consult the [git weird technical failures guide](https://sp19.datastructur.es/materials/guides/git-wtfs).
+
+If you get some sort of error, STOP and either figure it out by carefully reading the git guide or seek help from an instructor. You’ll potentially save yourself a lot of trouble vs. guess-and-check with git commands. If you find yourself trying to use commands you Google like `force push`, don’t.
+
 ### Python
 
-To start, you'll need a modern version of Python. We suggest version 3.12.3 (check with `python3 --version`). This should come with `pip`, but you may have to ensure this separately depending on your system.
+To start, you'll need a modern version of Python ([download if necessary](https://www.python.org/downloads/)). We suggest version 3.12.3 (check with `python3 --version`). This should come with `pip`, but you may have to ensure this separately depending on your system.
 
 If using Windows, we recommend using Ubuntu through the Windows Subsystem for Linux so you can follow along with standard commands.
 
-You will also want to have `git` installed, although the project can technically be completed without it.
+Unfortunately, various ways to install Python may result in you lacking the package manager `pip` and/or `venv`. Try Googling to see if you can resolve this, or ask course staff.
+
+**We will assume in these instructions that `python3` resolves to the correct version of Python.** Depending on how you installed it, you may need to use just `python`. Similarly, `pip` and `pip3` may also need to be switched around.
 
 ### Virtual environment
 
 Let's set up a Python virtual environment. This will ensure you get only the right dependencies and don't pollute your Python environment.
-You may also use another environment manager like Anaconda, but here's how to do it with just Python:
+You may also use another environment manager like `Anaconda`, but here's how to do it with just Python:
 
-First, navigate to your home directory or some other location outside of this git repository:
+First, navigate to your home directory or some other location outside of this git repository.
+
+Assuming you're using a UNIX shell, you can follow along:
 
 `cd ~/`
 
@@ -42,6 +82,10 @@ Navigate back to this git repository using `cd`, and then
 `pip install -r requirements.txt`
 
 This should install all the necessary packages into your virtual environment.
+
+If you don't have the `pip` alias available, you may equivalently try
+
+`python3 -m pip install -r requirements.txt`
 
 ## Introduction
 
