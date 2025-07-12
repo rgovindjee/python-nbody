@@ -30,7 +30,7 @@ Depending on the settings on the computer you’re using, you will possibly find
     vim
     emacs
 
-~~Fortunately~~ Unfortunately, `git` will likely default to one of these text editors, meaning that the simple act of providing a merge message may cause you considerable consternation. Don’t worry, this is normal! One of the goals of 61B is to teach you to handle these sorts of humps. Indeed, one of the reasons we’re making you use a powerful real-world version control system like `git` this semester is to have you hit these common hurdles now in a friendly pedagogical environment instead of the terrifying real world. However, this also means we’re going to suffer sometimes, particularly at this early point in the semester. Don’t panic!
+~~Fortunately~~ Unfortunately, `git` will likely default to one of these text editors, meaning that the simple act of providing a merge message may cause you considerable consternation. Don’t worry, this is normal! One of the goals of this project is to teach you to handle these sorts of humps. Indeed, one of the reasons we’re making you use a powerful real-world version control system like `git` is to have you hit these common hurdles now in a friendly pedagogical environment instead of the terrifying real world. However, this also means we’re going to suffer sometimes, particularly early on. Don’t panic!
 
 For reference, this is what `vim` looks like:
 
